@@ -5,10 +5,17 @@ import SignOutButton from "../SignOut";
 
 import * as ROUTES from "../../constants/routes";
 import { withFirebase } from "../Firebase";
+import { AuthUserContext } from "../Session";
 
 
-const Navigation = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+const Navigation = () => (
+  <div>
+    <AuthUserContext.Consumer> 
+      {authUser => 
+        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+      }
+    </AuthUserContext.Consumer>
+  </div>
 )
 
 const NavigationAuth = () => (
