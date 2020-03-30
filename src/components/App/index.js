@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navigation from "../Navigation";
@@ -29,7 +29,7 @@ const App = () => (
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
     </div>
   </Router>
-);
+)
   
 
 export default withAuthentication(App);

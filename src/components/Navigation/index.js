@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import SignOutButton from "../SignOut";
 
 import * as ROUTES from "../../constants/routes";
-import { withFirebase } from "../Firebase";
 import { AuthUserContext } from "../Session";
 
 
@@ -30,6 +29,9 @@ const NavigationAuth = () => (
       <li>
         <Link to={ROUTES.ACCOUNT}>Account</Link>
       </li>
+      {/* <li>
+        <Link to={ROUTES.ADMIN}>Admin</Link>
+      </li> */}
       <li>
         <SignOutButton />
       </li>
@@ -41,8 +43,11 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
   <div>
     <ul>
-      <li>
+      {/* <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
+      </li> */}
+      <li>
+        <Link to={ROUTES.LANDING}>Landing</Link>
       </li>
       <li>
         <Link to={ROUTES.SIGN_IN}>Sign In</Link>
