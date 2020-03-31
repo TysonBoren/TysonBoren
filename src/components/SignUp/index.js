@@ -17,6 +17,10 @@ const INITIAL_STATE = {
   email: "",
   passwordOne: "",
   passwordTwo: "",
+  make: "",
+  model: "",
+  year: "",
+  mileage: "",
   error: null,
 }
 
@@ -30,10 +34,10 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = event => {
-    const { username, email, passwordOne } = this.state;
+    const { username, email, passwordOne, make, model, year, mileage } = this.state;
 
     this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .doCreateUserWithEmailAndPassword(email, passwordOne, make, model, year, mileage)
       // this creates users in the firebase internal auth database and in realtime database on signup. 
       .then(authUser => {
        this.props.firebase
@@ -41,6 +45,10 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
+            model,
+            make,
+            year,
+            mileage
           })
           .then(() => {
             this.setState({ ...INITIAL_STATE });
@@ -71,6 +79,10 @@ class SignUpFormBase extends Component {
         email,
         passwordOne,
         passwordTwo,
+        make,
+        model,
+        year,
+        mileage,
         error,
       } = this.state;
 
@@ -114,6 +126,38 @@ class SignUpFormBase extends Component {
             onChange={this.onChange}
             type="password"
             placeholder="Confirm Password"
+          />
+
+          <input
+            name="make"
+            value={make}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Make of motorcycle"
+          />
+
+          <input
+            name="model"
+            value={model}
+            onChange={this.onChange}
+            type="text"
+            placeholder="model of motorcycle"
+          />
+
+          <input
+            name="year"
+            value={year}
+            onChange={this.onChange}
+            type="number"
+            placeholder="year of motorcycle"
+          />
+
+          <input
+            name="mileage"
+            value={mileage}
+            onChange={this.onChange}
+            type="float"
+            placeholder="Current Mileage"
           />
           {/* <input type="submit">SIGN UP!</input> */}
           <button disabled={isInvalid} type="submit">Sign Up</button>

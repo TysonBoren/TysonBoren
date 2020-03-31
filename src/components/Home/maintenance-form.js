@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withAuthorization } from "../Session";
+
 
 class MaintenanceForm extends Component {
     constructor(props) {
@@ -22,7 +24,7 @@ class MaintenanceForm extends Component {
     onSubmit = (event) => {
 
         this.setState({
-            dueBy: 10 + parseInt(this.state.currentMileage)
+            dueBy: 3700 + parseFloat(this.state.currentMileage)
         })
 
         event.preventDefault(event)
@@ -37,7 +39,7 @@ class MaintenanceForm extends Component {
                     <h1>Enter in current mileage and I'll remind you when you are due!</h1>
                     <input
                         name="currentMileage"
-                        type="number"
+                        type="float"
                         placeholder="mileage"
                         onChange={this.onChange}
                     >
@@ -56,5 +58,8 @@ class MaintenanceForm extends Component {
 
     }
 }
+
+const condition = authUser => authUser != null;
+
  
-export default MaintenanceForm;
+export default withAuthorization(condition)(MaintenanceForm);
