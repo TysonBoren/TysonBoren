@@ -19,7 +19,7 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <div>
-    <ul>
+    <ul className="nav-wrapper">
       <li>
         <Link to={ROUTES.LANDING}>Landing</Link>
       </li>
