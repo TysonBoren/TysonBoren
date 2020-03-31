@@ -3,21 +3,23 @@ import React, { Component } from 'react';
 import { withFirebase } from "../Firebase";
 
 const UserList = ({ users }) => (
-    <ul>
-        {users.map(user => (
-            <li key={user.uid}>
-                <span>
-                    <strong>ID:</strong> {user.uid}
-                </span>
-                <span>
-                    <strong>Email:</strong> {user.email}
-                </span>
-                <span>
-                    <strong>Username:</strong> {user.username}
-                </span>
-            </li>
-        ))}
-    </ul>
+    <div>
+        <ul>
+            {users.map(user => (
+                <li key={user.uid}>
+                    <span>
+                        <strong>ID:</strong> {user.uid}
+                    </span>
+                    <span>
+                        <strong>Email:</strong> {user.email}
+                    </span>
+                    <span>
+                        <strong>Username:</strong> {user.username}
+                    </span>
+                </li>
+            ))}
+        </ul>
+    </div>
 )
 
 

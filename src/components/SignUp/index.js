@@ -82,20 +82,21 @@ class SignUpFormBase extends Component {
 
       return (
 
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} >
           <input
             name="username"
             value={username}
             onChange={this.onChange}
             type="text"
             placeholder="Full Name"
+
           />
 
           <input
             name="email"
             value={email}
             onChange={this.onChange}
-            type="text"
+            type="email"
             placeholder="Email Address"
           />
 
