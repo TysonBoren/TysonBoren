@@ -68,7 +68,7 @@ class PasswordForgetFormBase extends Component {
 
 const PasswordForgetLink = () => (
   <p>
-    <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+    <Link to={ROUTES.PASSWORD_FORGET} style={{textDecoration: "none"}}>Forgot Password?</Link>
   </p>
 );
 

@@ -17,7 +17,9 @@ class Firebase {
 
     this.auth=app.auth();
     this.db = app.database();
+    console.log("this.db", app)
   }
+  
 
   // Auth API
 

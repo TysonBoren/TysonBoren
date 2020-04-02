@@ -5,6 +5,8 @@ import SignOutButton from "../SignOut";
 
 import * as ROUTES from "../../constants/routes";
 import { AuthUserContext } from "../Session";
+import Logo from "../styles/images/logo.png"
+
 
 
 const Navigation = () => (
@@ -18,40 +20,50 @@ const Navigation = () => (
 )
 
 const NavigationAuth = () => (
-  <div>
-    <ul className="nav-wrapper">
-      <li>
+  <div className='nav-wrapper'>
+    <div className='logo-wrapper'>
+      <div className="logo">
+        <img src={Logo} alt="banana-mechanic-logo"/>
+      </div>
+    </div>
+    <ul className="nav-link-wrapper">
+      <div>
         <Link to={ROUTES.LANDING}>Landing</Link>
-      </li>
-      <li>
+      </div>
+      <div>
         <Link to={ROUTES.HOME}>Home</Link>
-      </li>
-      <li>
+      </div>
+      <div>
         <Link to={ROUTES.ACCOUNT}>Account</Link>
-      </li>
+      </div>
       {/* <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li> */}
-      <li>
+      <div>
         <SignOutButton />
-      </li>
+      </div>
     </ul>
   </div>
 );
 
 
 const NavigationNonAuth = () => (
-  <div>
-    <ul>
+  <div className='nav-wrapper'>
+  <div className='logo-wrapper'>
+      <div className="logo">
+        <img src={Logo} alt="banana-mechanic-logo"/>
+      </div>
+    </div>
+    <ul className='nav-link-wrapper'>
       {/* <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li> */}
-      <li>
+      <div>
         <Link to={ROUTES.LANDING}>Landing</Link>
-      </li>
-      <li>
+      </div>
+      <div>
         <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-      </li>
+      </div>
     </ul>
   </div>
 );

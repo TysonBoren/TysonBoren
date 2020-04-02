@@ -8,7 +8,7 @@ import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes"
 
 const SignInPage = () => (
-  <div>
+  <div className='signin-body'>
     <h1>SignIn</h1>
     <SignInForm />
     <PasswordForgetLink />
@@ -56,6 +56,8 @@ class SignInFormBase extends Component {
     
     return (
       <form onSubmit={this.onSubmit}>
+
+      <div>
         <input
           name="email"
           value={email}
@@ -63,7 +65,9 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+      </div>
 
+      <div>
         <input
           name="password" 
           value={password}
@@ -71,8 +75,10 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">Sign In</button>
-
+      </div>
+      <div className="sign-in-btn">
+        <button  disabled={isInvalid} type="submit">Sign In</button>
+      </div>
         {error && <p>{error.message}</p>}
 
       </form>

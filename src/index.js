@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import "./components/styles/main.scss"
-// import './index.css';
+import './index.css';
 import * as serviceWorker from './serviceWorker';
+import 'typeface-roboto';
+
 
 import App from './components/App/';
 import Firebase, { FirebaseContext } from "./components/Firebase";
