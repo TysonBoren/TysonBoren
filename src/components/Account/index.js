@@ -5,7 +5,7 @@ import { PasswordForgetForm } from "../PasswordForget";
 import PasswordChangeForm from "../PasswordChange";
 
 
-const AccountPage = () => (
+const AccountPage = (props) => (
   <AuthUserContext.Consumer>
     {authUser => (
       <div>
