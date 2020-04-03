@@ -3,9 +3,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #8399AF;
+    background-color: #01233F;
     height: 80px;
-    box-shadow: 10px 10px 10px 10px;
+    // box-shadow: 10px 10px 10px 10px;
 
     .logo-wrapper {
         display: flex;
@@ -24,7 +24,6 @@
         justify-content: flex-end;
         align-items: flex-end;
         text-decoration: none;
-        color: red;
         margin: none;
     
         
@@ -34,6 +33,7 @@
             justify-content: space-between;
             text-decoration: none;
             padding-right: 30px;
+            color: burlywood;
         }
     }
 }

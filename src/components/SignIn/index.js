@@ -9,10 +9,17 @@ import * as ROUTES from "../../constants/routes"
 
 const SignInPage = () => (
   <div className='signin-body'>
-    <h1>SignIn</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
+    
+    <div className="signin-wrapper">
+      <div className="links-wrapper">
+
+        <h1>SignIn</h1>
+        <SignInForm />
+        <PasswordForgetLink />
+        <SignUpLink />
+      </div>
+    {/* <img src="https://images.unsplash.com/photo-1532334664543-a1ac9d95137d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" /> */}
+    </div>         
   </div>
 );
 
@@ -55,6 +62,11 @@ class SignInFormBase extends Component {
     const isInvalid = password === "" || email === "";
     
     return (
+
+      <div>
+      <div>
+        {/* <img src="https://images.unsplash.com/photo-1532334664543-a1ac9d95137d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" /> */}
+      </div>
       <form onSubmit={this.onSubmit}>
 
       <div>
@@ -82,6 +94,7 @@ class SignInFormBase extends Component {
         {error && <p>{error.message}</p>}
 
       </form>
+      </div>
     )
   }
 }

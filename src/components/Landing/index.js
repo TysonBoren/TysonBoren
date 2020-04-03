@@ -45,7 +45,7 @@ class DummyForm extends Component {
   
   render() {
     return ( 
-      <div>
+      <div className="signin-wrapper">
         <form onSubmit={this.onSubmit}>
             <div>
                 <h1>Enter in current mileage and I'll tell you when you are due!</h1>

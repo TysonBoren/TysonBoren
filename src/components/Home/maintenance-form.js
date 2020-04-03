@@ -49,49 +49,6 @@ class MaintenanceForm extends Component {
 
 
 // currently works but is SETTING data children rather than updating. Running out of time so this will do for now. Fix later. 
-    onSubmit = (event) => {
-        this.props.firebase.user(this.props.firebase.auth.currentUser.uid);
-        this.userRef.once('value', snap => {
-            const newData = snap.val()
-            console.log(newData)
-            this.userRef.update({
-                mileage: this.state.currentMileage,
-            })
-            .then(() => {
-                this.setState({
-                    dueBy: 3700 + parseFloat(this.state.currentMileage)
-                })
-            })
-            .then(() => {
-               this.dueByRef = this.props.firebase.user(this.props.firebase.auth.currentUser.uid)
-                this.userRef.once("value", snap => {
-                    const newData = snap.val()
-                    this.userRef.set({
-                        mileage: this.state.currentMileage,
-                        email: newData.email,
-                        make: newData.make,
-                        model: newData.model,
-                        username: newData.username,
-                        year: newData.year,
-                        dueByMileage: this.state.dueBy
-                    })
-                })
-            })
-            .then(() => {
-                this.setState({
-                    dueBy: this.props.firebase.auth.currentUser.dueByMileage
-                })
-            })
-            .catch(error => {
-                console.log("error", error)
-            })
-        })
-        event.preventDefault(event)
-    }
-
-
-
-    // THIS TOTALLY WORKS DONT MESS IT UP!!
     // onSubmit = (event) => {
     //     this.props.firebase.user(this.props.firebase.auth.currentUser.uid);
     //     this.userRef.once('value', snap => {
@@ -99,16 +56,30 @@ class MaintenanceForm extends Component {
     //         console.log(newData)
     //         this.userRef.update({
     //             mileage: this.state.currentMileage,
-    //             // email: newData.email,
-    //             // make: newData.make,
-    //             // model: newData.model,
-    //             // username: newData.username,
-    //             // year: newData.year,
     //         })
     //         .then(() => {
     //             this.setState({
     //                 dueBy: 3700 + parseFloat(this.state.currentMileage)
-    
+    //             })
+    //         })
+    //         .then(() => {
+    //            this.dueByRef = this.props.firebase.user(this.props.firebase.auth.currentUser.uid)
+    //             this.userRef.once("value", snap => {
+    //                 const newData = snap.val()
+    //                 this.userRef.set({
+    //                     mileage: this.state.currentMileage,
+    //                     email: newData.email,
+    //                     make: newData.make,
+    //                     model: newData.model,
+    //                     username: newData.username,
+    //                     year: newData.year,
+    //                     dueByMileage: this.state.dueBy
+    //                 })
+    //             })
+    //         })
+    //         .then(() => {
+    //             this.setState({
+    //                 dueBy: this.props.firebase.auth.currentUser.dueByMileage
     //             })
     //         })
     //         .catch(error => {
@@ -117,6 +88,35 @@ class MaintenanceForm extends Component {
     //     })
     //     event.preventDefault(event)
     // }
+
+
+
+    // THIS TOTALLY WORKS DONT MESS IT UP!!
+    onSubmit = (event) => {
+        this.props.firebase.user(this.props.firebase.auth.currentUser.uid);
+        this.userRef.once('value', snap => {
+            const newData = snap.val()
+            console.log(newData)
+            this.userRef.update({
+                mileage: this.state.currentMileage,
+                // email: newData.email,
+                // make: newData.make,
+                // model: newData.model,
+                // username: newData.username,
+                // year: newData.year,
+            })
+            .then(() => {
+                this.setState({
+                    dueBy: 3700 + parseFloat(this.state.currentMileage)
+    
+                })
+            })
+            .catch(error => {
+                console.log("error", error)
+            })
+        })
+        event.preventDefault(event)
+    }
     
     render() {
         return ( 

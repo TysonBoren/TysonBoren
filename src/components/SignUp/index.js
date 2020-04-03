@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { compose } from "recompose";
 
+import "../styles/sign-up.scss"
+
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+  <div className="sign-up-wrapper">
+    <div className="content-wrapper">
+
+      <h1>SignUp</h1>
+      <SignUpForm />
+    </div>
   </div>
 );
 
@@ -93,77 +98,97 @@ class SignUpFormBase extends Component {
         username === "";
 
       return (
+        <div className="sign-up-wrapper">
+         <div className="form-wrapper">
+            <form onSubmit={this.onSubmit} className="ugh" >
+              <div className="inputs" >
+                <input
+                  name="username"
+                  value={username}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Full Name"
+                />
+              </div>
 
-        <form onSubmit={this.onSubmit} >
-          <input
-            name="username"
-            value={username}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Full Name"
+              <div className="inputs">
+                <input
+                  name="email"
+                  value={email}
+                  onChange={this.onChange}
+                  type="email"
+                  placeholder="Email Address"
+                />
+              </div>
 
-          />
+              <div>
+                <input
+                  name="passwordOne"
+                  value={passwordOne}
+                  onChange={this.onChange}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>  
 
-          <input
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            type="email"
-            placeholder="Email Address"
-          />
+              <div>
+                <input
+                  name="passwordTwo"
+                  value={passwordTwo}
+                  onChange={this.onChange}
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+              </div>
 
-          <input
-            name="passwordOne"
-            value={passwordOne}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Password"
-          />
+              <div>
+                <input
+                  name="make"
+                  value={make}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Make of motorcycle"
+                />
+              </div>
 
-          <input
-            name="passwordTwo"
-            value={passwordTwo}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Confirm Password"
-          />
+              <div>
+                <input
+                  name="model"
+                  value={model}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="model of motorcycle"
+                />
+              </div>
 
-          <input
-            name="make"
-            value={make}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Make of motorcycle"
-          />
+              <div>
+                <input
+                  name="year"
+                  value={year}
+                  onChange={this.onChange}
+                  type="number"
+                  placeholder="year of motorcycle"
+                />
+              </div>
 
-          <input
-            name="model"
-            value={model}
-            onChange={this.onChange}
-            type="text"
-            placeholder="model of motorcycle"
-          />
+              <div>
+                <input
+                  name="mileage"
+                  value={mileage}
+                  onChange={this.onChange}
+                  type="float"
+                  placeholder="Current Mileage"
+                />
+              </div>
+                {/* <input type="submit">SIGN UP!</input> */}
+                <div>
+                <button disabled={isInvalid} type="submit">Sign Up</button>
+                </div>
 
-          <input
-            name="year"
-            value={year}
-            onChange={this.onChange}
-            type="number"
-            placeholder="year of motorcycle"
-          />
-
-          <input
-            name="mileage"
-            value={mileage}
-            onChange={this.onChange}
-            type="float"
-            placeholder="Current Mileage"
-          />
-          {/* <input type="submit">SIGN UP!</input> */}
-          <button disabled={isInvalid} type="submit">Sign Up</button>
-
-          {error && <p>{error.message}</p>}
-        </form>
+              {error && <p>{error.message}</p>}
+            </form>
+          </div>
+        </div>
       )
   }
 }
