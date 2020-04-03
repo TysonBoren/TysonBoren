@@ -182,7 +182,7 @@ class SignUpFormBase extends Component {
               </div>
                 {/* <input type="submit">SIGN UP!</input> */}
                 <div>
-                <button disabled={isInvalid} type="submit">Sign Up</button>
+                <button className="sign-in-btn" disabled={isInvalid} type="submit">Sign Up</button>
                 </div>
 
               {error && <p>{error.message}</p>}
