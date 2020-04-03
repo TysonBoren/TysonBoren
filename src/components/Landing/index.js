@@ -48,7 +48,7 @@ class DummyForm extends Component {
       <div className="signin-wrapper">
         <form onSubmit={this.onSubmit}>
             <div>
-                <h1>Enter in current mileage and I'll tell you when you are due!</h1>
+                <h1>Enter in current mileage after an oil change, and I'll keep track of when its due!</h1>
                 <input
                   name="currentMileage"
                   type="float"
